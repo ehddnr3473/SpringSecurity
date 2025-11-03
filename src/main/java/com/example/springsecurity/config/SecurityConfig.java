@@ -22,7 +22,7 @@ public class SecurityConfig {
         http
                 .authorizeHttpRequests(
                         auth -> auth
-                                .requestMatchers("/", "login").permitAll()
+                                .requestMatchers("/", "/login", "/join", "/joinProc").permitAll()
                                 .requestMatchers("/admin").hasRole("ADMIN") // 로그인 및 ADMIN Role 소유
                                 .requestMatchers("/my/**").hasAnyRole("ADMIN", "USER")
                                 .anyRequest().authenticated()
